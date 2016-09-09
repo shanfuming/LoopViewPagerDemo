@@ -20,6 +20,7 @@ import android.os.Parcelable;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.util.AttributeSet;
+import android.widget.AdapterView;
 
 import com.cfox.loopviewpagerdemo.R;
 
@@ -36,8 +37,10 @@ import java.util.ArrayList;
  */
 public class LoopViewPager extends ViewPager {
 
+    private Context mContext;
+
     /** 原始的Adapter */
-    private PagerAdapter mAdapter;
+    private LoopAdapter mAdapter;
     /** 实现了循环滚动的Adapter */
     private LoopAdapterWrapper mLoopAdapter;
 
@@ -59,12 +62,19 @@ public class LoopViewPager extends ViewPager {
     /** 当前的条目位置 */
     private int currentPosition;
 
+    /** Loop 中点击事件监听 */
+    private LoopListener mListener;
+
+    private LoopPageAdapter mLoopPageAdapter;
+
     public LoopViewPager(Context context) {
         this(context, null);
+        this.mContext = context;
     }
 
     public LoopViewPager(Context context, AttributeSet attrs) {
         super(context, attrs);
+        this.mContext = context;
         loopPageChangeListener = new MyOnPageChangeListener();
         super.addOnPageChangeListener(loopPageChangeListener);
 
@@ -78,6 +88,7 @@ public class LoopViewPager extends ViewPager {
 
     @Override
     protected void onAttachedToWindow() {
+
         super.onAttachedToWindow();
         if (isDetached) {
             if (loopPageChangeListener != null) {
@@ -121,14 +132,6 @@ public class LoopViewPager extends ViewPager {
             super.onRestoreInstanceState(state);
         }
         setCurrentItem(currentPosition);
-    }
-
-    @Override
-    public void setAdapter(PagerAdapter adapter) {
-        mAdapter = adapter;
-        mLoopAdapter = new LoopAdapterWrapper(adapter);
-        super.setAdapter(mLoopAdapter);
-        setCurrentItem(0, false);
     }
 
     /**
@@ -188,6 +191,7 @@ public class LoopViewPager extends ViewPager {
             //分发事件给外部传进来的监听
             if (mOnPageChangeListener != null) {
                 mOnPageChangeListener.onPageSelected(realPosition);
+                mLoopPageAdapter.onPageSelected(mLoopPageAdapter.getDatas().get(realPosition),realPosition);
             }
             if (mOnPageChangeListeners != null) {
                 for (int i = 0, z = mOnPageChangeListeners.size(); i < z; i++) {
@@ -243,6 +247,21 @@ public class LoopViewPager extends ViewPager {
             }
         }
     }
+
+    public void setAdapter(LoopPageAdapter pageAdapter) {
+        mLoopPageAdapter = pageAdapter;
+        mAdapter = new LoopAdapter(mContext,pageAdapter);
+        if (mListener != null) mAdapter.setOnClickListener(mListener);
+        mLoopAdapter = new LoopAdapterWrapper(mAdapter);
+        super.setAdapter(mLoopAdapter);
+        setCurrentItem(0, false);
+    }
+
+    public void setOnItemClickListener(LoopListener listener){
+        mListener = listener;
+        if(mAdapter != null) mAdapter.setOnClickListener(mListener);
+    }
+
 
     /**
      * 设置是否自动轮播  delayTime延时的毫秒
