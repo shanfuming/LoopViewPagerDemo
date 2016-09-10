@@ -4,10 +4,7 @@
               android:layout_width="match_parent"
               android:layout_height="match_parent">
 
-    <Button
-        android:onClick="open"
-        android:text="OPEN"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+
+    <include layout="@layout/loop_view"/>
 
 </LinearLayout>
