@@ -1,4 +1,4 @@
-package com.cfox.loopviewpagerdemo.loopview;
+package com.cfox.looplibrary;
 
 import android.content.Context;
 import android.content.res.TypedArray;
@@ -9,12 +9,11 @@ import android.util.AttributeSet;
 import android.util.TypedValue;
 import android.view.View;
 
-import com.cfox.loopviewpagerdemo.R;
 
 /**
  * <br/>************************************************
- * <br/>PROJECT_NAME : LoopViewPagerDemo
- * <br/>PACKAGE_NAME : com.cfox.loopviewpagerdemo.loopview
+ * <br/>PROJECT_NAME : LoopView
+ * <br/>PACKAGE_NAME : com.cfox.looplibrary
  * <br/>AUTHOR : Machao
  * <br/>DATA : 2016/9/8 0008
  * <br/>TIME : 21:25

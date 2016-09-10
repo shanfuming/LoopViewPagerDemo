@@ -1,9 +1,9 @@
-package com.cfox.loopviewpagerdemo.loopview;
+package com.cfox.looplibrary;
 
 /**
  * <br/>************************************************
- * <br/>PROJECT_NAME : LoopViewPagerDemo
- * <br/>PACKAGE_NAME : com.cfox.loopviewpagerdemo.loopview
+ * <br/>PROJECT_NAME : LoopView
+ * <br/>PACKAGE_NAME : com.cfox.looplibrary
  * <br/>AUTHOR : Machao
  * <br/>DATA : 2016/9/8 0008
  * <br/>TIME : 21:04
@@ -20,9 +20,8 @@ import android.os.Parcelable;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.util.AttributeSet;
-import android.widget.AdapterView;
+import android.view.MotionEvent;
 
-import com.cfox.loopviewpagerdemo.R;
 
 import java.util.ArrayList;
 
@@ -83,7 +82,7 @@ public class LoopViewPager extends ViewPager {
         mDelayTime = a.getInteger(R.styleable.LoopViewPager_lvp_delayTime, mDelayTime);
         a.recycle();
 
-        setAutoLoop(mIsAutoLoop, mDelayTime);
+        setAutoLoop(mIsAutoLoop, mDelayTime,true);
     }
 
     @Override
@@ -191,8 +190,12 @@ public class LoopViewPager extends ViewPager {
             //分发事件给外部传进来的监听
             if (mOnPageChangeListener != null) {
                 mOnPageChangeListener.onPageSelected(realPosition);
+            }
+
+            if(mLoopPageAdapter != null){
                 mLoopPageAdapter.onPageSelected(mLoopPageAdapter.getDatas().get(realPosition),realPosition);
             }
+
             if (mOnPageChangeListeners != null) {
                 for (int i = 0, z = mOnPageChangeListeners.size(); i < z; i++) {
                     OnPageChangeListener listener = mOnPageChangeListeners.get(i);
@@ -262,14 +265,39 @@ public class LoopViewPager extends ViewPager {
         if(mAdapter != null) mAdapter.setOnClickListener(mListener);
     }
 
+    @Override
+    public boolean dispatchTouchEvent(MotionEvent ev) {
+
+        switch (ev.getAction()){
+            case MotionEvent.ACTION_DOWN:
+                if (mIsAutoLoop)
+                setAutoLoop(mIsAutoLoop,mDelayTime,false);
+                break;
+
+            case MotionEvent.ACTION_MOVE:
+
+                break;
+
+            case MotionEvent.ACTION_UP:
+                if (mIsAutoLoop)
+                setAutoLoop(mIsAutoLoop,mDelayTime,true);
+                break;
+
+            case MotionEvent.ACTION_CANCEL:
+                if (mIsAutoLoop)
+                    setAutoLoop(mIsAutoLoop,mDelayTime,true);
+                break;
+        }
+        return super.dispatchTouchEvent(ev);
+    }
 
     /**
      * 设置是否自动轮播  delayTime延时的毫秒
      */
-    public void setAutoLoop(boolean isAutoLoop, int delayTime) {
+    public void setAutoLoop(boolean isAutoLoop, int delayTime,boolean isRun) {
         mIsAutoLoop = isAutoLoop;
         mDelayTime = delayTime;
-        if (mIsAutoLoop) {
+        if (mIsAutoLoop && isRun) {
             if (mHandler == null) {
                 mHandler = new InnerHandler();
                 mHandler.sendEmptyMessageDelayed(0, mDelayTime);

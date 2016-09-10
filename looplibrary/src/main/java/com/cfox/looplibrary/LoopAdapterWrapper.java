@@ -1,4 +1,4 @@
-package com.cfox.loopviewpagerdemo.loopview;
+package com.cfox.looplibrary;
 
 import android.os.Parcelable;
 import android.support.v4.app.FragmentPagerAdapter;
@@ -9,8 +9,8 @@ import android.view.ViewGroup;
 
 /**
  * <br/>************************************************
- * <br/>PROJECT_NAME : LoopViewPagerDemo
- * <br/>PACKAGE_NAME : com.cfox.loopviewpagerdemo.CircleImage
+ * <br/>PROJECT_NAME : LoopView
+ * <br/>PACKAGE_NAME : com.cfox.looplibrary
  * <br/>AUTHOR : Machao
  * <br/>DATA : 2016/9/8 0008
  * <br/>TIME : 21:24

@@ -1,14 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <!--圆形图片-->
-    <declare-styleable name="CircleImageView">
-        <attr name="civ_BorderWidth" format="dimension"/>
-        <attr name="civ_BorderColor" format="color"/>
-        <attr name="civ_FillColor" format="color"/>
-        <attr name="civ_BorderOverlay" format="boolean"/>
-    </declare-styleable>
-
     <!--循环滑动的ViewPager-->
     <declare-styleable name="LoopViewPager">
         <attr name="lvp_isAutoLoop" format="boolean"/>

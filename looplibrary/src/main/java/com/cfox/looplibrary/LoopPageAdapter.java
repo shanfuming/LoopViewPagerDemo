@@ -1,14 +1,15 @@
-package com.cfox.loopviewpagerdemo.loopview;
+package com.cfox.looplibrary;
 
 import android.view.View;
+import android.widget.ImageView;
 
 import java.util.ArrayList;
 import java.util.List;
 
 /**
  * <br/>************************************************
- * <br/>PROJECT_NAME : LoopViewPagerDemo
- * <br/>PACKAGE_NAME : com.cfox.loopviewpagerdemo.loopview
+ * <br/>PROJECT_NAME : LoopView
+ * <br/>PACKAGE_NAME : com.cfox.looplibrary
  * <br/>AUTHOR : CFOX
  * <br/>DATA : 2016/9/9 0009
  * <br/>TIME : 10:45
@@ -18,10 +19,6 @@ import java.util.List;
 public abstract class LoopPageAdapter<T> {
 
     private List<T> mDatas = new ArrayList<>();
-
-//    public interface LoopListeners<V extends T> {
-//        public void onItemClickListener(T t, int position);
-//    }
 
     public LoopPageAdapter(List<T> ts){
         mDatas.clear();
@@ -46,5 +43,5 @@ public abstract class LoopPageAdapter<T> {
 
     public abstract void onPageSelected(T t, int position);
 
-    public abstract View onLoadPage(View view,T t, int position);
+    public abstract View onLoadPage(ImageView view, T t, int position);
 }

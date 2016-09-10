@@ -1,23 +1,17 @@
-package com.cfox.loopviewpagerdemo.loopview;
+package com.cfox.looplibrary;
 
 import android.content.Context;
 import android.support.v4.view.PagerAdapter;
-import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.Toast;
 
-import com.bumptech.glide.Glide;
-import com.cfox.loopviewpagerdemo.MainActivity;
-
-import java.util.ArrayList;
 import java.util.List;
 
 /**
  * <br/>************************************************
- * <br/>PROJECT_NAME : LoopViewPagerDemo
- * <br/>PACKAGE_NAME : com.cfox.loopviewpagerdemo.loopview
+ * <br/>PROJECT_NAME : LoopView
+ * <br/>PACKAGE_NAME : com.cfox.looplibrary
  * <br/>AUTHOR : CFOX
  * <br/>DATA : 2016/9/9 0009
  * <br/>TIME : 10:38
@@ -34,7 +28,6 @@ public class LoopAdapter<T> extends PagerAdapter{
     private LoopListener<T> mClickListener;
 
     public LoopAdapter(Context context , LoopPageAdapter adapter){
-        this.mLoopDatas.clear();
         this.mCtx = context;
         this.mLoopPageAdapter = adapter;
         this.mLoopDatas = adapter.getDatas();
@@ -63,7 +56,7 @@ public class LoopAdapter<T> extends PagerAdapter{
         ((ImageView)view).setScaleType(ImageView.ScaleType.CENTER_CROP);
 
         if(mLoopPageAdapter != null){
-            viewBuffer = mLoopPageAdapter.onLoadPage(view,mLoopDatas.get(position),position);
+            viewBuffer = mLoopPageAdapter.onLoadPage((ImageView) view,mLoopDatas.get(position),position);
             if(viewBuffer != null){
                 view = viewBuffer;
                 viewBuffer = null;
@@ -78,7 +71,6 @@ public class LoopAdapter<T> extends PagerAdapter{
                 }
             }
         });
-//        Glide.with(MainActivity.this).load(imgUrls[position]).into(imageView);
         container.addView(view);
         return view;
     }
