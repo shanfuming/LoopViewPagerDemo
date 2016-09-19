@@ -11,8 +11,6 @@ import java.util.List;
  * <br/>PROJECT_NAME : LoopView
  * <br/>PACKAGE_NAME : com.cfox.looplibrary
  * <br/>AUTHOR : CFOX
- * <br/>DATA : 2016/9/9 0009
- * <br/>TIME : 10:45
  * <br/>MSG :
  * <br/>************************************************
  */

@@ -4,9 +4,7 @@ package com.cfox.looplibrary;
  * <br/>************************************************
  * <br/>PROJECT_NAME : LoopView
  * <br/>PACKAGE_NAME : com.cfox.looplibrary
- * <br/>AUTHOR : Machao
- * <br/>DATA : 2016/9/8 0008
- * <br/>TIME : 21:04
+ * <br/>AUTHOR : CFOX
  * <br/>MSG :
  * <br/>************************************************
  */

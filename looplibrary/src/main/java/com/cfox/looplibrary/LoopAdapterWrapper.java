@@ -12,8 +12,6 @@ import android.view.ViewGroup;
  * <br/>PROJECT_NAME : LoopView
  * <br/>PACKAGE_NAME : com.cfox.looplibrary
  * <br/>AUTHOR : Machao
- * <br/>DATA : 2016/9/8 0008
- * <br/>TIME : 21:24
  * <br/>MSG :
  * <br/>************************************************
  */
