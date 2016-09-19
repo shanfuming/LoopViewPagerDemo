@@ -1,4 +1,4 @@
-package com.cfox.loopviewpagerdemo;
+package com.cfox.loopviewpagerdemo.data;
 
 import com.cfox.loopviewpagerdemo.bean.LoopBean;
 

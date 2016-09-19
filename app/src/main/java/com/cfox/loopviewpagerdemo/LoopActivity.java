@@ -7,7 +7,9 @@ import android.widget.Toast;
 import com.cfox.looplibrary.CircleIndicator;
 import com.cfox.looplibrary.LoopListener;
 import com.cfox.looplibrary.LoopViewPager;
+import com.cfox.loopviewpagerdemo.adapter.LoopMainAdapter;
 import com.cfox.loopviewpagerdemo.bean.LoopBean;
+import com.cfox.loopviewpagerdemo.data.DataFactory;
 
 /**
  * <br/>************************************************
@@ -29,7 +31,7 @@ public class LoopActivity extends Activity {
         setContentView(R.layout.activity_looop);
 
         mViewPager = (LoopViewPager) findViewById(R.id.loop_view);
-        mViewPager.setAdapter(new LoopMainAdapter(this,DataFactory.getLoopData()));
+        mViewPager.setAdapter(new LoopMainAdapter(this, DataFactory.getLoopData()));
         mViewPager.setOnItemClickListener(new LoopListener<LoopBean>() {
             @Override
             public void onItemClickListener(LoopBean loopBean, int position) {

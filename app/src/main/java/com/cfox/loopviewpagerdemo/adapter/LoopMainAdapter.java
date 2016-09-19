@@ -1,4 +1,4 @@
-package com.cfox.loopviewpagerdemo;
+package com.cfox.loopviewpagerdemo.adapter;
 
 import android.content.Context;
 import android.support.annotation.NonNull;

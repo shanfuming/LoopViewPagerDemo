@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/LoopViewPagerDemo.iml" filepath="$PROJECT_DIR$/LoopViewPagerDemo.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/library/library.iml" filepath="$PROJECT_DIR$/library/library.iml" />
       <module fileurl="file://$PROJECT_DIR$/looplibrary/looplibrary.iml" filepath="$PROJECT_DIR$/looplibrary/looplibrary.iml" />
     </modules>
   </component>

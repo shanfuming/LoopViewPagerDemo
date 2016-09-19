@@ -2,7 +2,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
           package="com.cfox.loopviewpagerdemo">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
 
     <application
         android:allowBackup="true"
@@ -19,6 +18,9 @@
         </activity>
 
         <activity android:name=".LoopActivity"/>
+
+        <activity android:name=".ListViewLoopActivity"/>
+        <activity android:name=".ListViewRefreshActivity"/>
     </application>
 
 </manifest>
