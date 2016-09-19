@@ -23,14 +23,15 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
 /**
- * <br/>PROJECT_NAME : BannerDemo
- * <br/>PACKAGE_NAME : com.cfox.bannerdemo
+ * <br/>************************************************
+ * <br/>PROJECT_NAME : LoopViewPagerDemo
+ * <br/>PACKAGE_NAME : com.cfox.loopviewpagerdemo
  * <br/>AUTHOR : CFOX
- * <br/>DATA : 2016/5/8 0008
- * <br/>TIME : 11:12
+ * <br/>DATA : 2016/9/12 0012
+ * <br/>TIME : 9:55
  * <br/>MSG :
+ * <br/>************************************************
  */
 public class ListViewRefreshActivity extends Activity implements AdapterView.OnItemClickListener{
 
